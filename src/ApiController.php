@@ -2,6 +2,8 @@
 
 namespace Src;
 
+require 'functions.php';
+
 use Exception;
 
 class ApiController
@@ -37,7 +39,7 @@ class ApiController
             return json_encode([
                 'status' => 200,
                 'count' => $response['meta']['count'],
-                'data' => $response['data']
+                'data' => hotelsResource($response['data'])
             ]);
 
         } catch (Exception $exception) {
